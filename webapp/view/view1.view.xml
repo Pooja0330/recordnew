@@ -1,0 +1,341 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="nonconformanceodata.controller.view1"
+	xmlns:fragments="nonconformanceodata.view.fragments"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:uxap="sap.uxap"
+	xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:upload="sap.m.upload"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns="sap.m" height="100%">
+	<uxap:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+		<uxap:headerTitle>
+
+		</uxap:headerTitle>
+		<uxap:headerContent>
+			<Toolbar class="buttonproperty">
+				<Label text="Record Non-Conformance" class="contentleft"></Label>
+				<ToolbarSpacer />
+				<Button text = "{i18n>create}" press= "onPressCreate" />
+				<Button text = "{i18n>return}" press= "onPressReturn" />
+				<Button text = "{i18n>delete}" press= "onPressDelete" enabled="false" />
+
+			</Toolbar>
+		</uxap:headerContent>
+		<uxap:sections>
+			<uxap:ObjectPageSection titleUppercase="false" title="{i18n>nonConformanceInfo}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+							<!-- <fragments:nonConformanceInfo id="2"/>	 -->
+							<VBox class="sapUiSmallMargin">
+								<f:SimpleForm id="nonconformanceform" editable="false" layout="ResponsiveGridLayout" columnsXL="4" columnsL="4" columnsM="4" singleContainerFullSize="false">
+									<f:content>
+										<VBox class="sapUiTinyMargin">
+
+											<Label text="{i18n>ncCategory}" labelFor="multipleConditions"/>
+											<ComboBox xmlns="sap.m" items="{OModel>/items}" width="96%">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{OModel>key}" text="{OModel>text}"/>
+												</items>
+
+											</ComboBox>
+											<Label/>
+											<Label text="{i18n>description}" labelFor="multipleConditions"/>
+											<TextArea width='96%' value="{i18n>usbPortDesc}"/>
+											<Label/>
+											<Label text="{i18n>defecDetailedDescription}" labelFor="multipleConditions"/>
+											<TextArea width='96%' value="{i18n>defectDesc}"/>
+										</VBox>
+										<VBox class="sapUiTinyMargin">
+
+											<Label text="{i18n>ncStatus}" labelFor="multipleConditions"/>
+											<Text text="{i18n>In Process}"/>
+											<Label/>
+											<Label text="{i18n>defectCodeGroup}" labelFor="multipleConditions"/>
+											<MultiInput width='96%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label/>
+											<Label text="{i18n>defectCodeGroup}" labelFor="multipleConditions"/>
+											<MultiInput width='96%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label/>
+											<Label text="{i18n>severity}" labelFor="multipleConditions"/>
+											<Input width='96%'/>
+										</VBox>
+										<core:Title />
+										<VBox class="sapUiTinyMargin">
+											<Label text="{i18n>defectiveMaterial}" labelFor="multipleConditions"/>
+											<MultiInput id="multiInput" width='98%' valueHelpRequest=".onValueHelpRequested" suggestionRows="{path: '/Products'}">
+												<suggestionColumns>
+													<Column>
+														<Label text="Product ID"/>
+													</Column>
+													<Column>
+														<Label text="Product Name"/>
+													</Column>
+												</suggestionColumns>
+												<suggestionRows>
+													<ColumnListItem>
+														<Label text="{ProductID}" />
+														<Label text="{ProductName}" />
+													</ColumnListItem>
+												</suggestionRows>
+
+
+
+											</MultiInput>
+											<Label text="{i18n>plants}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onValueHelpRequested"  suggestionRows="{path: '/Products'}">
+												<suggestionColumns >
+													<Column>
+														<Label text="Product ID"/>
+													</Column>
+													<Column>
+														<Label text="Product Name"/>
+													</Column>
+												</suggestionColumns>
+												<suggestionRows>
+													<ColumnListItem>
+														<Label text="{ProductID}" />
+														<Label text="{ProductName}" />
+													</ColumnListItem>
+												</suggestionRows>
+											</MultiInput>
+											<Label text="{i18n>storageLocations}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>station}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+										</VBox>
+										<core:Title  />
+										<VBox class="sapUiTinyMargin">
+											<Label text="{i18n>nonConformanceRaisedBy}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>costCenter}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>liability}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>spoType}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+										</VBox>
+										<core:Title  />
+										<VBox class="sapUiTinyMargin">
+											<Label text="{i18n>vistOrderNumber}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>vin}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>bsn}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>tls}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+										</VBox>
+									</f:content>
+								</f:SimpleForm>
+							</VBox>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection titleUppercase="false" title="{i18n>affectedParts}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+							<smartTable:SmartTable id="LineItemsSmartTable" useTablePersonalisation="true" entitySet="Customers" tableType="Table" editable="true" enableAutoBinding="true" class="sapUiResponsiveContentPadding" showRowCount="false" enableAutoColumnWidth="true" showTablePersonalisation="false" enableExport="false" editTogglable="false">
+
+								<smartTable:customToolbar>
+
+									<OverflowToolbar design="Transparent">
+										<ToolbarSpacer/>
+										<Button text="{i18n>add}" press=".OnAffectedPart"/>
+										<Button text="{i18n>setToInvestigation}"/>
+                                        <Button text="{i18n>remove} " press=".onPressDeleteTaskBar"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<smartTable:layoutData>
+									<FlexItemData growFactor="1" baseSize="0%"/>
+								</smartTable:layoutData>
+							</smartTable:SmartTable>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+
+			<uxap:ObjectPageSection titleUppercase="false" title="{i18n>tasks}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+							<smartTable:SmartTable id="idTaskBar" persistencyKey="SmartTableAnalytical_Explored" entitySet="Orders" tableType="Table" editable="true" showRowCount="false" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" enableExport="false" editTogglable="false">
+								<!-- <Table id="innerUi5Table" items="{path:'/Customers'}" growing="true" growingThreshold="4" growingScrollToLoad="false">
+									<ColumnListItem  press = "navOnPress" highlight="{path:'ShipVia', formatter:'.formatRowHighlight'}"/>
+								</Table> -->
+								<smartTable:customToolbar >
+									<OverflowToolbar design="Transparent">
+
+										<ToolbarSpacer/>
+										<Button text="{i18n>create}" press=".onPressCreateTaskBar"/>
+										<Button text="{i18n>return}"/>
+										<Button text="{i18n>delete}" press=".onPressDeleteTaskBar"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<smartTable:layoutData>
+									<FlexItemData growFactor="1" baseSize="0%"/>
+								</smartTable:layoutData>
+							</smartTable:SmartTable>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection titleUppercase="false" title="{i18n>attachments}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+							<upload:UploadSet id="attachmentUploadSet" instantUpload="true" showIcons="true" terminationEnabled="true" fileTypes="txt,doc,png" maxFileNameLength="30" maxFileSize="200" mediaTypes="text/plain,application/msword,image/png"
+							 uploadUrl="../../../../upload" items="{path: '/items', templateShareable: false}" mode="MultiSelect" selectionChanged="onSelectionChange">
+								<upload:toolbar>
+									<OverflowToolbar >
+										<ToolbarSpacer/>
+										<Button id="downloadSelectedButton" text="{i18n>assignDoc}" press="onDownloadSelectedButton"/>
+										<Button id="versionButton" text="{i18n>download}" press="onVersionUpload"/>
+									</OverflowToolbar>
+								</upload:toolbar>
+								<upload:items>
+									<upload:UploadSetItem fileName="{fileName}" mediaType="{mediaType}" url="{url}" thumbnailUrl="{thumbnailUrl}" markers="{path: 'markers', templateShareable: false}" statuses="{path: 'statuses', templateShareable: false}" uploadState="{uploadState}">
+										<upload:markers>
+											<ObjectMarker type="{type}" visibility="{visibility}"/>
+										</upload:markers>
+										<upload:statuses>
+											<ObjectStatus title="{title}" text="{text}" state="{state}" icon="{icon}" active="{active}"/>
+										</upload:statuses>
+									</upload:UploadSetItem>
+								</upload:items>
+							</upload:UploadSet>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection titleUppercase="false" title="{i18n>labelOverview}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+							<Table id="idEmployeeTabel" items="{LocalModel>/EmployeeList}" mode="MultiSelect" noDataText="Drop column list items here and columns in the area above">
+								<headerToolbar>
+									<OverflowToolbar >
+										<Title text = "{i18n>EmployeeId}"/>
+										<ToolbarSpacer />
+										<Button text = "Load" press= "onPressLoad" />
+										<Button text = "Create" press= "navOnPress" />
+										<Button text = "Delete" press= "onPressDelete" />
+									</OverflowToolbar>
+								</headerToolbar>
+
+								<columns>
+									<Column>
+										<Label text="{i18n>EmployeeId}" />
+									</Column>
+									<Column>
+										<Label text="{i18n>Salutation}" />
+									</Column>
+									<Column>
+										<Label text="{i18n>Name}" />
+									</Column>
+									<Column>
+										<Label text="{i18n>Address}" />
+									</Column>
+									<Column >
+										<Label text="{i18n>ContactNo}" />
+									</Column>
+									<Column>
+										<Label text="{i18n>Position}" />
+									</Column>
+								</columns>
+
+								<items>
+									<ColumnListItem >
+										<cells>
+											<Text text="{LocalModel>EmployeeId}"/>
+											<Text text="{LocalModel>Salutation}"/>
+											<Text text="{LocalModel>First_Name} {LocalModel>Last_Name}"/>
+											<Text text="{LocalModel>Address}"/>
+											<Text text="{LocalModel>CountryCode} {LocalModel>ContactNo}"/>
+											<Text text="{LocalModel>Position}" />
+											<Text text="{LocalModel>Position}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+
+							</Table>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<!-- <uxap:ObjectPageSection titleUppercase="false" title="{i18n>labelOverview}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+							<smartTable:SmartTable id="idOutputOverViewBar" entitySet="Products" tableType="Table" editable="true" showRowCount="false" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" enableExport="false" editTogglable="false">
+								<smartTable:customToolbar>
+									<OverflowToolbar design="Transparent">
+										<ToolbarSpacer/>
+										<Button text="{i18n>retry}" enabled="false"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<smartTable:layoutData>
+									<FlexItemData growFactor="1" baseSize="0%"/>
+								</smartTable:layoutData>
+							</smartTable:SmartTable>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection> -->
+			<uxap:ObjectPageSection titleUppercase="false" title="{i18n>administrativeData}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+							<f:SimpleForm id="idadministrativeDataform" editable="false" layout="ResponsiveGridLayout" columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false">
+								<f:content>
+									<core:Title/>
+									<VBox class="sapUiTinyMargin">
+										<Label text="{i18n>createdOn}" />
+										<Text text="02/01/2024" />
+										<Label/>
+										<Label text="{i18n>createdAt}" />
+										<Text text="07:34:07" />
+										<Label/>
+										<Label text="{i18n>createdBy}" />
+										<Text text="XYZ" />
+									</VBox>
+									<core:Title  />
+									<VBox class="sapUiTinyMargin">
+										<Label text="{i18n>createdOn}" />
+										<Text text="04/01.2024"/>
+										<Label/>
+										<Label text="{i18n>createdAt}" />
+										<Text text="09:09:09" />
+										<Label/>
+										<Label text="{i18n>createdBy}" />
+										<Text text="ABC" />
+									</VBox>
+								</f:content>
+							</f:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection titleUppercase="false" title="{i18n>changes}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection titleUppercase="false">
+						<uxap:blocks>
+							<smartTable:SmartTable id="idchangesBar" entitySet="Products" tableType="ResponsiveTable" editable="false" showRowCount="true" header="Changed Document" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" enableExport="false" showTablePersonalisation="false" editTogglable="false">
+							</smartTable:SmartTable>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+
+	</uxap:ObjectPageLayout>
+</mvc:View>
+

@@ -1,0 +1,307 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/V2/northwind/northwind.svc/$metadata">
+        <edmx:Include Namespace="NorthwindModel"/>
+        <edmx:Include Namespace="ODataWeb.Northwind.Model"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="NorthwindModel.Customer">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerID"/>
+                            <PropertyValue Property="Label" String="CustomerID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyName"/>
+                            <PropertyValue Property="Label" String="CompanyName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="City"/>
+
+                            <PropertyValue Property="Label" String="City"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Country"/>
+                            <PropertyValue Property="Label" String="Country"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Region"/>
+                            <PropertyValue Property="Label" String="Region"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="PostalCode"/>
+                            <PropertyValue Property="Label" String="PostalCode"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Phone"/>
+                            <PropertyValue Property="Label" String="Phone"/>
+                        </Record>
+
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="NorthwindModel.Order">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderID"/>
+                            <PropertyValue Property="Label" String="OrderID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderDate"/>
+                            <PropertyValue Property="Label" String="OrderDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="RequiredDate"/>
+                            <PropertyValue Property="Label" String="RequiredDate"/>
+                        </Record>
+
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShipAddress"/>
+                            <PropertyValue Property="Label" String="ShipAddress"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShipVia"/>
+                            <PropertyValue Property="Criticality" Path="ShipVia"/>
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithIcon"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShipName"/>
+                            <PropertyValue Property="Label" String="ShipName"/>
+                            <PropertyValue Property="Criticality" Path="ShipVia"/>
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithIcon"/>
+                        </Record>
+
+
+                    </Collection>
+                    <Annotation Term="UI.LineItem">
+                        <Annotation Term="UI.Criticality" Path="ShipVia" />
+         //LineItem Criticality annotation
+                        <Collection>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ShipName"/>
+                                <PropertyValue Property="Label" String="ShipName"/>
+                            </Record>
+                        </Collection>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+
+
+            <Annotations Target="NorthwindModel.Product">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductID"/>
+                            <PropertyValue Property="Label" String="ProductID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                            <PropertyValue Property="Label" String="ProductName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SupplierID"/>
+                            <PropertyValue Property="Label" String="SupplierID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Supplier"/>
+                            <PropertyValue Property="Label" String="Supplier"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="QuantityPerUnit"/>
+                            <PropertyValue Property="Label" String="QuantityPerUnit"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitsInStock"/>
+                            <PropertyValue Property="Label" String="UnitsInStock"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitPrice"/>
+                            <PropertyValue Property="Label" String="UnitPrice"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitsInStock"/>
+                            <PropertyValue Property="Label" String="UnitsInStock"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitsOnOrder"/>
+                            <PropertyValue Property="Label" String="UnitsOnOrder"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ReorderLevel"/>
+                            <PropertyValue Property="Label" String="ReorderLevel"/>
+                        </Record>
+
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="NorthwindModel.Customer/Region"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="Regions" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Region" />
+                                    <PropertyValue Property="ValueListProperty" String="RegionID" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="RegionDescription" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="NorthwindModel.Customer/PostalCode"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="Customers" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="PostalCode" />
+                                    <PropertyValue Property="ValueListProperty" String="PostalCode" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PostalCode" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="NorthwindModel.Customer/Phone"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="Customers" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Phone" />
+                                    <PropertyValue Property="ValueListProperty" String="Phone" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Phone" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="NorthwindModel.Customer/CustomerID"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="Customers" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerID" />
+                                    <PropertyValue Property="ValueListProperty" String="CustomerID" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerID" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/City"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="CustomerID" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Customer/CompanyName"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="Address" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Customer/Country"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderID" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Order/RequiredDate"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="RequiredDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Order/OrderDate"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Order/OrderID"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Order/ShipVia"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Order/ShipAddress"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Order/ShipName"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/Order_Details"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/ProductID"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/ProductName"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/UnitsOnOrder"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/Supplier"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/SupplierID"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/UnitPrice"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/UnitsInStock"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/ReorderLevel"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+            <Annotations Target="NorthwindModel.Product/QuantityPerUnit"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="OrderDate" />
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

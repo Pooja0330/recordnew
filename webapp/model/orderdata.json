@@ -1,0 +1,77 @@
+{
+  "EmployeeList": [
+    {
+      "EmployeeId": 1,
+      "Salutation": "Ms.",
+      "First_Name": "Shruti",
+      "Last_Name": "Kaushik",
+      "Address": "Gurgaon",
+      "CountryCode": "+91",
+      "ContactNo": "9599736360",
+      "Position": "GET"
+    },
+    {
+      "EmployeeId": 2,
+      "Salutation": "Ms.",
+      "First_Name": "Pooja",
+      "Last_Name": "Mahant",
+      "Address": "Gurgaon",
+      "CountryCode": "+91",
+      "ContactNo": "9599736360",
+      "Position": "GET"
+    },
+    {
+      "EmployeeId": 3,
+      "Salutation": "Mr.",
+      "First_Name": "Raj",
+      "Last_Name": "Yadav",
+      "Address": "Delhi",
+      "CountryCode": "+91",
+      "ContactNo": "9599736360",
+      "Position": "Manager"
+    },
+    {
+      "EmployeeId": 5,
+      "Salutation": "Mrs.",
+      "First_Name": "Phullo",
+      "Last_Name": "Devi",
+      "Address": "Rajasthan",
+      "CountryCode": "+91",
+      "ContactNo": "9599736360",
+      "Position": "Team Lead"
+    }
+  ],
+  "oCreateEmployeeObj ": [
+    {
+      "EmployeeID": "",
+      "Saluation": -1,
+      "First_Name": "",
+      "Last_Name": "",
+      "Address": "",
+      "CountryCode": "",
+      "ContactNumber": "",
+      "Position": ""
+    }
+  ],
+  "OrderCreationObject": [
+    {
+      "OrderID": "",
+      "OrderDate": "",
+      "RequiredDate": "",
+      "ShipAddress": "",
+      "ShipVia": "",
+      "ShipName": ""
+    }
+  ],
+  "CustomerCreationObject": [
+    {
+      "CustomerID": "",
+      "CompanyName": "",
+      "City": "",
+      "Country": "",
+      "Region": "",
+      "PostalCode": ""
+    }
+  ]
+
+}

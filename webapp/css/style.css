@@ -1,0 +1,12 @@
+/* Enter your custom styles here */
+.buttonproperty{
+    display: flex !important;
+    justify-content: right !important;
+}
+.contentleft{
+    display: flex !important;
+    margin-right: auto !important;
+    font-weight: bolder !important;
+    color: black !important;
+    font-size: larger !important;
+}

@@ -1,0 +1,70 @@
+<core:FragmentDefinition xmlns="sap.m"
+				xmlns:mvc="sap.ui.core.mvc"
+				xmlns:core="sap.ui.core">
+				
+				<VBox class="sapUiSmallMargin">
+								<f:SimpleForm id="nonconformanceform" editable="false" layout="ResponsiveGridLayout" columnsXL="4" columnsL="4" columnsM="4" singleContainerFullSize="false">
+									<f:content>
+										<VBox class="sapUiTinyMargin">
+
+											<Label text="{i18n>ncCategory}" labelFor="multipleConditions"/>
+											<Text text="{i18n>trimAndFinalLineside}"/>
+											<Label/>
+											<Label text="{i18n>description}" labelFor="multipleConditions"/>
+											<TextArea width='96%' value="{i18n>usbPortDesc}"/>
+											<Label/>
+											<Label text="{i18n>defecDetailedDescription}" labelFor="multipleConditions"/>
+											<TextArea width='96%' value="{i18n>defectDesc}"/>
+										</VBox>
+										<VBox class="sapUiTinyMargin">
+
+											<Label text="{i18n>ncStatus}" labelFor="multipleConditions"/>
+											<Text text="{i18n>In Process}"/>
+											<Label/>
+											<Label text="{i18n>defectCodeGroup}" labelFor="multipleConditions"/>
+											<MultiInput width='96%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label/>
+											<Label text="{i18n>defectCodeGroup}" labelFor="multipleConditions"/>
+											<MultiInput width='96%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label/>
+											<Label text="{i18n>severity}" labelFor="multipleConditions"/>
+											<Input width='96%'/>
+										</VBox>
+										<core:Title />
+										<VBox class="sapUiTinyMargin">
+											<Label text="{i18n>defectiveMaterial}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>plants}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>storageLocations}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>station}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+										</VBox>
+										<core:Title  />
+										<VBox class="sapUiTinyMargin">
+											<Label text="{i18n>nonConformanceRaisedBy}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>costCenter}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>liability}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>spoType}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+										</VBox>
+										<core:Title  />
+										<VBox class="sapUiTinyMargin">
+											<Label text="{i18n>vistOrderNumber}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>vin}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>bsn}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+											<Label text="{i18n>tls}" labelFor="multipleConditions"/>
+											<MultiInput width='98%' valueHelpRequest=".onMultipleConditionsVHRequested"/>
+										</VBox>
+									</f:content>
+								</f:SimpleForm>
+							</VBox>
+				
+			</core:FragmentDefinition>

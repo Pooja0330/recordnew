@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+    <MessagePopover
+        activeTitlePress="onErrorTitlePress"
+        groupItems="true"
+        items = "{message>/}">
+    
+        <items >
+            <MessageItem
+                title="{message>message}"
+                subtitle="{message>additionalText}"
+                groupName="{parts: [{path: 'message>controlIds'}], formatter:'.getGroupName'}"
+                activeTitle="{parts: [{path: 'message>controlIds'}], formatter:'.isPositionable'}"
+                type="{message>type}"
+                description="{message>message}"
+            />
+        </items>
+    </MessagePopover>
+</core:FragmentDefinition>

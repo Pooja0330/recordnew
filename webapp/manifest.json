@@ -1,0 +1,178 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "nonconformanceodata",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.12.1",
+      "toolsId": "b8658fdc-5cfe-42a4-94c8-c7ed978a0b70"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/V2/northwind/northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.4",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "nonconformanceodata.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "nonconformanceodata.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false,
+        "fragments": {
+          "files":[
+          "nonconformanceodata.view.fragments.nonConformanceInfo.fragment.xml",
+          "nonconformanceodata.view.fragments.nonConformanceInfo.js"
+          ]
+        }
+      },
+      "routes": [
+        {
+          "name": "Routeview1",
+          "pattern": ":?query:",
+          "target": [
+            "Targetview1"
+          ]
+        },
+        {
+          "name": "Routeaddpage",
+          "pattern": "Routeaddpage",
+          "target": [
+            "Targetaddpage"
+          ]
+        },
+        {
+          "name":"RouteTaskaddpage",
+          "pattern": "RouteTaskaddpage",
+          "target": [
+            "TargetTaskaddpage"
+          ]
+        },
+        {
+          "name":"RouteaffectedPartsaddpage",
+          "pattern": "RouteaffectedPartsaddpage",
+          "target": [
+            "TargetaffectedPartsaddpage"
+          ]
+        }
+      ],
+      "targets": {
+        "Targetview1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "view1",
+          "viewName": "view1"
+        },
+        "Targetaddpage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "addpage",
+          "viewName": "addpage"
+        },
+        "TargetTaskaddpage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "addtaskpage",
+          "viewName": "addtaskpage"
+        },
+        "TargetaffectedPartsaddpage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "addaffpartpage",
+          "viewName": "addaffpartpage"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "nonconformanceodata.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}
